@@ -4,51 +4,42 @@ using namespace std;
 class Fibonacci {
   
 public:
-    long ubah(int);//rekursif
-    long ubah(int);//iteratif
+    long ubah1(int);//rekursif
+    long ubah2(int);//iteratif
 
 private:
-    int i;
 	int a, b, c;
 };
   
-int Fibonacci::ubah(int)
+long Fibonacci::ubah1(int n)
 {
-    a=1;
-    b=1;
-  
+    long a=1, b=1, c;
+
     cout << a << " " << b;
   
     for (int i=1; i<=n-2; i++) {
         c= a+b;
-        cout<< " "<<c;
-  
         a=b;
         b=c;
+        cout<<" "<<c<<" ";
     }
 }
-int Fibonacci::ubah(int n){
-     if (i==0){
-   		cout<<a;
+long Fibonacci::ubah2(int n){
+     if ((n==0)||(n==1)){
+   		return (1);
   }
-  	else if (i==1){
-   		cout<<" "<<b;
-   }
    else{
-    cout<<" "<<c;
-    a = b;
-    b = c;
+   	   return (ubah2(n-1)+ubah2(n-2));
    }
-   return (n*ubah(n-1));
 }
   
 int main()
 {
-    int m=11;
+    int n=11;
   
     Fibonacci fbc;
-    fbc.ubah(n);//iteratif
+	fbc.ubah1(n);//iteratif
     cout<<endl;
-    fbc.ubah(11);//rekursif
+    fbc.ubah2(11);//rekursif
     return 0;
 }
